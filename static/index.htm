@@ -1,1 +1,23 @@
-TODO: Turn placeholder into interface
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script>
+function doTheThing() {
+	var request = new XMLHttpRequest();
+	request.open("POST", "../predict");
+	request.onload = function(response) {
+		alert(this.response);
+	}
+	var formData = new FormData();
+	var capital_gain = document.getElementById("capital_gain").value;
+	formData.append("capital_gain", capital_gain);
+	request.send(formData);
+}
+		</script>
+	</head>
+	<body>
+		<input type='text' id='capital_gain' />
+		<input type='submit' value='Predict' onclick='doTheThing();return false;' />
+	<body>
+</html>

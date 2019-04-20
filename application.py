@@ -3,6 +3,8 @@ import json
 import os
 import argparse
 
+import predictions
+
 class HelloCherryPy(object):
 	#@cherrypy.expose("index")
 	#@cherrypy.tools.allow(methods=["GET"])
@@ -11,11 +13,34 @@ class HelloCherryPy(object):
 
 	@cherrypy.expose
 	@cherrypy.tools.allow(methods=["POST"])
-	def predict(self, age="20", height="175"):
-		age = int(age)
-		return json.dumps(age > 30)
+	def predict(self,
+			age=41,
+			workclass="?",
+			education="Masters",
+			marital_status="Never-married",
+			occupation="?",
+			relationship="Not-in-family",
+			race="White",
+			sex="Male",
+			capital_gain=0,
+			capital_loss=0,
+			hours_per_week=0,
+			native_country="Canada"):
+		likely = predictions.is_likely_donor(
+			age=age,
+			workclass=workclass,
+			education=education,
+			marital_status=marital_status,
+			occupation=occupation,
+			relationship=relationship,
+			race=race,
+			sex=sex,
+			capital_gain=capital_gain,
+			capital_loss=capital_loss,
+			hours_per_week=hours_per_week,
+			native_country=native_country)
+		return json.dumps(likely)
 
-class Empty(): pass
 
 if __name__ == "__main__":
 
