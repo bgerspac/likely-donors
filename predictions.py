@@ -20,11 +20,6 @@ onehot_columns = {
 }
 
 
-def get_education_num(education):
-    # TODO: map values from education column to education-num
-    return 14 if education == "Masters" else 0
-
-
 def to_predictable(df):
 
     predictable = df[["age", "education-num", "capital-gain", "capital-loss", "hours-per-week"]]
@@ -42,7 +37,7 @@ def to_predictable(df):
 
 def is_likely_donor(age=None,
                 workclass=None,
-                education=None,
+                education_num=None,
                 marital_status=None,
                 occupation=None,
                 relationship=None,
@@ -56,8 +51,7 @@ def is_likely_donor(age=None,
     example = pd.DataFrame.from_dict({
         "age":[age],
         "workclass":[workclass],
-        "education":["Masters"],
-        "education-num":[get_education_num(education)],
+        "education-num":[education_num],
         "marital-status":[marital_status],
         "occupation":[occupation],
         "relationship":[relationship],

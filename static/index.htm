@@ -9,15 +9,184 @@ function doTheThing() {
 	request.onload = function(response) {
 		alert(this.response);
 	}
+	request.onerror = function(e) {
+		alert("An error occurred and the prediction could not be made.")
+	}
 	var formData = new FormData();
 	var capital_gain = document.getElementById("capital_gain").value;
-	formData.append("capital_gain", capital_gain);
+	fieldIds = ["age", "workclass", "education_num", "marital_status", "occupation", "relationship", "race", "sex", "capital_gain", "capital_loss", "hours_per_week", "native_country"];
+	for (i = 0; i < fieldIds.length; i += 1) {
+		formData.append(fieldIds[i], document.getElementById(fieldIds[i]).value);
+	}
 	request.send(formData);
 }
 		</script>
+		<style>
+			input.number {
+				width: 184px;
+			}
+			select, input {
+				width: 200px;
+			}
+		</style>
 	</head>
 	<body>
-		<input type='text' id='capital_gain' />
+		<div class='label'>Age</div>
+		<div class='input'><input type='number' class='number' id='age' min='16' max='111' /></div>
+		<div class='label'>Work class</div>
+		<div class='input'>
+			<select id='workclass'>
+				<option></option>
+				<option>Federal-gov</option>
+				<option>Local-gov</option>
+				<option>Never-worked</option>
+				<option>Private</option>
+				<option>Self-emp-inc</option>
+				<option>Self-emp-not-inc</option>
+				<option>State-gov</option>
+				<option>Without-pay</option>
+			</select>
+		</div>
+		<div class='label'>Education</div>
+		<div class='input'>
+			<select id='education_num'>
+				<option></option>
+				<option value='1'>Preschool</option>
+				<option value='2'>1st-4th</option>
+				<option value='3'>5th-6th</option>
+				<option value='4'>7th-8th</option>
+				<option value='5'>9th</option>
+				<option value='6'>10th</option>
+				<option value='7'>11th</option>
+				<option value='8'>12th</option>
+				<option value='9'>HS-grad</option>
+				<option value='10'>Some-college</option>
+				<option value='11'>Assoc-voc</option>
+				<option value='12'>Assoc-acdm</option>
+				<option value='13'>Bachelors</option>
+				<option value='14'>Masters</option>
+				<option value='15'>Prof-school</option>
+				<option value='16'>Doctorate</option>
+			</select>
+		</div>
+		<div class='label'>Marital status</div>
+		<div class='input'>
+			<select id='marital_status'>
+				<option></option>
+				<option>Divorced</option>
+				<option>Married-AF-spouse</option>
+				<option>Married-civ-spouse</option>
+				<option>Married-spouse-absent</option>
+				<option>Never-married</option>
+				<option>Separated</option>
+				<option>Widowed</option>
+			</select>
+		</div>
+		<div class='label'>Occupation</div>
+		<div class='input'>
+			<select id='occupation'>
+				<option></option>
+				<option>Adm-clerical</option>
+				<option>Armed-Forces</option>
+				<option>Craft-repair</option>
+				<option>Exec-managerial</option>
+				<option>Farming-fishing</option>
+				<option>Handlers-cleaners</option>
+				<option>Machine-op-inspct</option>
+				<option>Other-service</option>
+				<option>Priv-house-serv</option>
+				<option>Prof-specialty</option>
+				<option>Protective-serv</option>
+				<option>Sales</option>
+				<option>Tech-support</option>
+				<option>Transport-moving</option>
+			</select>
+		</div>
+		<div class='label'>Relationship</div>
+		<div class='input'>
+			<select id='relationship'>
+				<option></option>
+				<option>Husband</option>
+				<option>Not-in-family</option>
+				<option>Other-relative</option>
+				<option>Own-child</option>
+				<option>Unmarried</option>
+				<option>Wife</option>
+			</select>
+		</div>
+		<div class='label'>Race</div>
+		<div class='input'>
+			<select id='race'>
+				<option></option>
+				<option>Amer-Indian-Eskimo</option>
+				<option>Asian-Pac-Islander</option>
+				<option>Black</option>
+				<option>White</option>
+				<option>Other</option>
+			</select>
+		</div>
+		<div class='label'>Sex</div>
+		<div class='input'>
+			<select id='sex'>
+				<option></option>
+				<option>Female</option>
+				<option>Male</option>
+			</select>
+		</div>
+		<div class='label'>Capital gain</div>
+		<div class='input'><input type='number' class='number' id='capital_gain' step='100' min='0' /></div>
+		<div class='label'>Capital loss</div>
+		<div class='input'><input type='number' class='number' id='capital_loss' step='100' min='0' /></div>
+		<div class='label'>Hours per week</div>
+		<div class='input'><input type='number' class='number' id='hours_per_week' min='0' max='168' /></div>
+		<div class='label'>Native country</div>
+		<div class='input'>
+			<select id='native_country'>
+				<option></option>
+				<option>United-States</option>
+				<option>Cambodia</option>
+				<option>Canada</option>
+				<option>China</option>
+				<option>Columbia</option>
+				<option>Cuba</option>
+				<option>Dominican-Republic</option>
+				<option>Ecuador</option>
+				<option>El-Salvador</option>
+				<option>England</option>
+				<option>France</option>
+				<option>Germany</option>
+				<option>Greece</option>
+				<option>Guatemala</option>
+				<option>Haiti</option>
+				<option>Holand-Netherlands</option>
+				<option>Honduras</option>
+				<option>Hong</option>
+				<option>Hungary</option>
+				<option>India</option>
+				<option>Iran</option>
+				<option>Ireland</option>
+				<option>Italy</option>
+				<option>Jamaica</option>
+				<option>Japan</option>
+				<option>Laos</option>
+				<option>Mexico</option>
+				<option>Nicaragua</option>
+				<option>Outlying-US(Guam-USVI-etc)</option>
+				<option>Peru</option>
+				<option>Philippines</option>
+				<option>Poland</option>
+				<option>Portugal</option>
+				<option>Puerto-Rico</option>
+				<option>Scotland</option>
+				<option>South</option>
+				<option>Taiwan</option>
+				<option>Thailand</option>
+				<option>Trinadad&amp;Tobago</option>
+				<option>Vietnam</option>
+				<option>Yugoslavia</option>
+			</select>
+		</div>
+
 		<input type='submit' value='Predict' onclick='doTheThing();return false;' />
 	<body>
 </html>

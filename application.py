@@ -16,7 +16,7 @@ class HelloCherryPy(object):
 	def predict(self,
 			age=41,
 			workclass="?",
-			education="Masters",
+			education_num=14,
 			marital_status="Never-married",
 			occupation="?",
 			relationship="Not-in-family",
@@ -27,17 +27,17 @@ class HelloCherryPy(object):
 			hours_per_week=0,
 			native_country="Canada"):
 		likely = predictions.is_likely_donor(
-			age=age,
+			age=int(age),
 			workclass=workclass,
-			education=education,
+			education_num=int(education_num),
 			marital_status=marital_status,
 			occupation=occupation,
 			relationship=relationship,
 			race=race,
 			sex=sex,
-			capital_gain=capital_gain,
-			capital_loss=capital_loss,
-			hours_per_week=hours_per_week,
+			capital_gain=int(capital_gain),
+			capital_loss=int(capital_loss),
+			hours_per_week=int(hours_per_week),
 			native_country=native_country)
 		return json.dumps(likely)
 
