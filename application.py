@@ -6,27 +6,23 @@ import argparse
 import predictions
 
 class HelloCherryPy(object):
-	#@cherrypy.expose("index")
-	#@cherrypy.tools.allow(methods=["GET"])
-	#def interface(self):
-	#	return "TODO: Interface"
 
 	@cherrypy.expose
 	@cherrypy.tools.allow(methods=["POST"])
 	def predict(self,
-			age=41,
+			age=40,
 			workclass="?",
-			education_num=14,
-			marital_status="Never-married",
+			education_num=1,
+			marital_status="?",
 			occupation="?",
-			relationship="Not-in-family",
-			race="White",
+			relationship="?",
+			race="?",
 			sex="Male",
 			capital_gain=0,
 			capital_loss=0,
 			hours_per_week=0,
-			native_country="Canada"):
-		likely = predictions.is_likely_donor(
+			native_country="?"):
+		likely = predictions.get_donor_class(
 			age=int(age),
 			workclass=workclass,
 			education_num=int(education_num),
