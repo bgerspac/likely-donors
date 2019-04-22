@@ -3,14 +3,18 @@
 	<head>
 		<meta charset="utf-8" />
 		<script>
-function doTheThing() {
+function getPrediction(handlePrediction, handleError) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "../predict");
 	request.onload = function(response) {
-		alert(this.response);
+		if (this.status == 200) {
+			handlePrediction(this.response);
+		} else {
+			handleError("" + this.status + ": " + this.statusText);
+		}
 	}
 	request.onerror = function(e) {
-		alert("An error occurred and the prediction could not be made.")
+		handleError("" + e.message);
 	}
 	var formData = new FormData();
 	var capital_gain = document.getElementById("capital_gain").value;
@@ -187,6 +191,6 @@ function doTheThing() {
 			</select>
 		</div>
 
-		<input type='submit' value='Predict' onclick='doTheThing();return false;' />
+		<input type='submit' value='Predict' onclick='getPrediction(function(result) { alert(result); }, function(message) { alert("An error occurred and the prediction could not be made: " + message); } );return false;' />
 	<body>
 </html>
