@@ -13197,7 +13197,7 @@ div#notebook {
     <span class="o">+</span> <span class="p">[</span><span class="n">KNeighborsClassifier</span><span class="p">()]</span> \
     <span class="o">+</span> <span class="p">[</span><span class="n">LinearDiscriminantAnalysis</span><span class="p">()]</span> \
     <span class="o">+</span> <span class="p">[</span><span class="n">GaussianNB</span><span class="p">()]</span> \
-    <span class="o">+</span> <span class="p">[</span><span class="n">MultinomialNB</span><span class="p">()]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="n">MultinomialNB</span><span class="p">()]</span> \
     <span class="o">+</span> <span class="p">[</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;&gt;50K&quot;</span><span class="p">:</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;&lt;=50K&quot;</span><span class="p">:</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)},</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span> \
     <span class="o">+</span> <span class="p">[</span><span class="n">SVC</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;&gt;50K&quot;</span><span class="p">:</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;&lt;=50K&quot;</span><span class="p">:</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)},</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
 
@@ -13233,7 +13233,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>693.4 RandomForestClassifier(bootstrap=True,
+<pre>654.2 RandomForestClassifier(bootstrap=True,
             class_weight={&#39;&gt;50K&#39;: 0.8, &#39;&lt;=50K&#39;: 0.2}, criterion=&#39;gini&#39;,
             max_depth=None, max_features=&#39;auto&#39;, max_leaf_nodes=None,
             min_impurity_decrease=0.0, min_impurity_split=None,
@@ -13241,7 +13241,7 @@ div#notebook {
             min_weight_fraction_leaf=0.0, n_estimators=3, n_jobs=None,
             oob_score=False, random_state=None, verbose=0,
             warm_start=False)
-670.0 RandomForestClassifier(bootstrap=True,
+663.2 RandomForestClassifier(bootstrap=True,
             class_weight={&#39;&gt;50K&#39;: 0.8333333333333334, &#39;&lt;=50K&#39;: 0.16666666666666666},
             criterion=&#39;gini&#39;, max_depth=None, max_features=&#39;auto&#39;,
             max_leaf_nodes=None, min_impurity_decrease=0.0,
@@ -13249,7 +13249,7 @@ div#notebook {
             min_samples_split=2, min_weight_fraction_leaf=0.0,
             n_estimators=3, n_jobs=None, oob_score=False,
             random_state=None, verbose=0, warm_start=False)
-673.4 RandomForestClassifier(bootstrap=True,
+690.6 RandomForestClassifier(bootstrap=True,
             class_weight={&#39;&gt;50K&#39;: 0.8571428571428571, &#39;&lt;=50K&#39;: 0.14285714285714285},
             criterion=&#39;gini&#39;, max_depth=None, max_features=&#39;auto&#39;,
             max_leaf_nodes=None, min_impurity_decrease=0.0,
@@ -13286,7 +13286,43 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>505.6 GaussianNB(priors=None, var_smoothing=1e-09)
 1225.0 MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True)
-505.6 GaussianNB(priors=None, var_smoothing=1e-09)
+424.0 LogisticRegression(C=1.0, class_weight={&#39;&gt;50K&#39;: 0.8, &#39;&lt;=50K&#39;: 0.2},
+          dual=False, fit_intercept=True, intercept_scaling=1,
+          max_iter=10000, multi_class=&#39;warn&#39;, n_jobs=None, penalty=&#39;l2&#39;,
+          random_state=None, solver=&#39;lbfgs&#39;, tol=0.0001, verbose=0,
+          warm_start=False)
+415.8 LogisticRegression(C=1.0,
+          class_weight={&#39;&gt;50K&#39;: 0.8333333333333334, &#39;&lt;=50K&#39;: 0.16666666666666666},
+          dual=False, fit_intercept=True, intercept_scaling=1,
+          max_iter=10000, multi_class=&#39;warn&#39;, n_jobs=None, penalty=&#39;l2&#39;,
+          random_state=None, solver=&#39;lbfgs&#39;, tol=0.0001, verbose=0,
+          warm_start=False)
+413.4 LogisticRegression(C=1.0,
+          class_weight={&#39;&gt;50K&#39;: 0.8571428571428571, &#39;&lt;=50K&#39;: 0.14285714285714285},
+          dual=False, fit_intercept=True, intercept_scaling=1,
+          max_iter=10000, multi_class=&#39;warn&#39;, n_jobs=None, penalty=&#39;l2&#39;,
+          random_state=None, solver=&#39;lbfgs&#39;, tol=0.0001, verbose=0,
+          warm_start=False)
+465.8 SVC(C=1.0, cache_size=200, class_weight={&#39;&gt;50K&#39;: 0.8, &#39;&lt;=50K&#39;: 0.2},
+  coef0=0.0, decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto&#39;,
+  kernel=&#39;rbf&#39;, max_iter=-1, probability=True, random_state=None,
+  shrinking=True, tol=0.001, verbose=False)
+469.6 SVC(C=1.0, cache_size=200,
+  class_weight={&#39;&gt;50K&#39;: 0.8333333333333334, &#39;&lt;=50K&#39;: 0.16666666666666666},
+  coef0=0.0, decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto&#39;,
+  kernel=&#39;rbf&#39;, max_iter=-1, probability=True, random_state=None,
+  shrinking=True, tol=0.001, verbose=False)
+471.4 SVC(C=1.0, cache_size=200,
+  class_weight={&#39;&gt;50K&#39;: 0.8571428571428571, &#39;&lt;=50K&#39;: 0.14285714285714285},
+  coef0=0.0, decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto&#39;,
+  kernel=&#39;rbf&#39;, max_iter=-1, probability=True, random_state=None,
+  shrinking=True, tol=0.001, verbose=False)
+413.4 LogisticRegression(C=1.0,
+          class_weight={&#39;&gt;50K&#39;: 0.8571428571428571, &#39;&lt;=50K&#39;: 0.14285714285714285},
+          dual=False, fit_intercept=True, intercept_scaling=1,
+          max_iter=10000, multi_class=&#39;warn&#39;, n_jobs=None, penalty=&#39;l2&#39;,
+          random_state=None, solver=&#39;lbfgs&#39;, tol=0.0001, verbose=0,
+          warm_start=False)
 </pre>
 </div>
 </div>
@@ -13411,7 +13447,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[9.99976614e-01 2.33858071e-05]] [[0. 1.]]
+<pre>[[0.92676447 0.07323553]] [[0. 1.]]
 </pre>
 </div>
 </div>
